@@ -15,6 +15,21 @@
   })
 
   cw1.addEventListener("click", function () {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(array => {
+        //console.log(array[array.length-1].id)
+        console.log(array.length);
+        var output = "";
+        for(var i = 0 ;i<array.length;i++){
+          console.log(i);
+          output += "</br>" + array[i].id +/* "/" + array.lenght + */"</br>";
+          output += "<h1>" + array[i].title + "</h1></br>";
+          output += "<h2>" + array[i].body.replace("\n","</br>") + "</h2></br>";
+        }
+        console.log(output);
+        answer.innerHTML = output;
+      })
     //TODO implement it
   })
 
